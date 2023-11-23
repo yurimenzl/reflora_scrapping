@@ -15,3 +15,14 @@ Web scrap in Python to retrieve data from Reflora Website
 !apt install chromium-chromedriver
 !pip install chromedriver-autoinstaller
 
+# Example
+import ReadRefloraWebsite
+
+refloraObj = ReadRefloraWebsite()
+df = refloraObj.read_data(path="angiosperma_flora_do_brasil.csv", separator=";")
+listTaxonId = refloraObj.get_taxon_ids(df, size=10)
+data = refloraObj.get_scrapped_data(listTaxonId, start=0, end=10, step=1)
+refloraObj.write_data(data)
+refloraObj.close_driver()
+
+
