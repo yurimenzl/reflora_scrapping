@@ -23,6 +23,8 @@ import ReadRefloraWebsite
 
 refloraObj = ReadRefloraWebsite()
 
+driver = refloraObj.set_driver()
+
 df = refloraObj.read_data(path="angiosperma_flora_do_brasil.csv", separator=";")
 
 listTaxonId = refloraObj.get_taxon_ids(df, size=10)
